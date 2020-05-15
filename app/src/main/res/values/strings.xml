@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CadernoRapido</string>
+    <string name="usuario">Usuario:</string>
+    <string name="senha">Senha:</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>
