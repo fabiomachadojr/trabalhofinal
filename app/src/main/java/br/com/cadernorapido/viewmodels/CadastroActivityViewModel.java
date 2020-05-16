@@ -29,4 +29,9 @@ public class CadastroActivityViewModel extends ViewModel {
     public void setModel(Usuario model) {
         this.model = model;
     }
+
+    @Bindable
+    public void save(){
+        model.save();
+    }
 }

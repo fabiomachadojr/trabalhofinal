@@ -1,6 +1,7 @@
 package br.com.cadernorapido.activitys;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -24,8 +25,15 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario();
 
-        CadastroActivityViewModel viewModel = new CadastroActivityViewModel(this, usuario);
+        final CadastroActivityViewModel viewModel = new CadastroActivityViewModel(this, usuario);
         binding.setViewModel(viewModel);
+
+        binding.btCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.save();
+            }
+        });
 
     }
 }

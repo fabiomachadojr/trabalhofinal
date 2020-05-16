@@ -5,7 +5,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
 @Entity
-public class Usuario {
+public class Usuario extends BaseModel{
     Long id;
     String nome;
     String senha;
