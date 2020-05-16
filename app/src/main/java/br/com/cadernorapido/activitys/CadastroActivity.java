@@ -31,6 +31,7 @@ public class CadastroActivity extends AppCompatActivity {
         binding.btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 viewModel.save();
             }
         });
