@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import br.com.cadernorapido.App;
 import br.com.cadernorapido.R;
 import br.com.cadernorapido.databinding.ActivityCadastroBinding;
 import br.com.cadernorapido.models.Usuario;
