@@ -10,7 +10,7 @@ import java.security.PublicKey;
 import br.com.cadernorapido.activitys.CadastroActivity;
 import br.com.cadernorapido.models.Usuario;
 
-public class CadastroActivityViewModel extends ViewModel {
+public class CadastroActivityViewModel extends BaseViewModel {
 
     private Context context;
     private Usuario model;
@@ -30,8 +30,7 @@ public class CadastroActivityViewModel extends ViewModel {
         this.model = model;
     }
 
-    @Bindable
-    public void save(){
+    public void save() {
         model.save();
     }
 }
