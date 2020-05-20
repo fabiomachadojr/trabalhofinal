@@ -13,6 +13,7 @@ import br.com.cadernorapido.models.DaoSession;
 public class App extends Application {
     private static DaoSession daoSession;
     private static App instance = null;
+    private WorkMain workMain;
 
     @Override
     public void onCreate() {
@@ -21,6 +22,8 @@ public class App extends Application {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "trabalho-final");
         Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
+
+        workMain = new WorkMain(this);
     }
 
     public static Context getAppContext() {
@@ -52,4 +55,7 @@ public class App extends Application {
         }
     }
 
+    public WorkMain getWorkMain() {
+        return workMain;
+    }
 }
