@@ -13,7 +13,6 @@ import br.com.cadernorapido.models.DaoSession;
 public class App extends Application {
     private static DaoSession daoSession;
     private static App instance = null;
-    private WorkMain workMain;
 
     @Override
     public void onCreate() {
@@ -23,7 +22,6 @@ public class App extends Application {
         Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
 
-        workMain = new WorkMain(this);
     }
 
     public static Context getAppContext() {
@@ -53,9 +51,5 @@ public class App extends Application {
         for (AbstractDao abstractDao : getAppDaoSession().getAllDaos()) {
             abstractDao.deleteAll();
         }
-    }
-
-    public WorkMain getWorkMain() {
-        return workMain;
     }
 }

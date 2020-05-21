@@ -25,7 +25,5 @@ public class MainActivity extends AppCompatActivity {
 
         View view = binding.getRoot();
 
-        mWorkMain = ((App) view.getContext().getApplicationContext()).getWorkMain();
-
     }
 }
