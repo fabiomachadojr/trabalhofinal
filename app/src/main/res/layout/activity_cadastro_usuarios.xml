@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".activitys.CadastroUsuarioActivity"
+        android:theme="@style/AppTheme2">
+
+
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="115dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_copybook" />
+
+        <TextView
+            android:id="@+id/textViewLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maropelight"
+            android:text="CadernoRápido"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_horizontal|left"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCadastrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLogo">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/maropelight"
+                android:text="Preencha seus dados:"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000000"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxStrokeColor="#000000">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCadastroUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maropelight"
+                    android:hint="Usuário"
+                    android:nextFocusForward="@id/editTextCadastroSenha"
+                    android:singleLine="true"
+                    android:textColor="#000000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInpust"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000000"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxStrokeColor="#000000">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCadastroSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maropelight"
+                    android:hint="Senha"
+                    android:nextFocusForward="@id/buttonCadastrar"
+                    android:singleLine="true"
+                    android:textColor="#000000"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkBoxLembrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#000000"
+                android:fontFamily="@font/maropelight"
+                android:onClick="lembraSenha"
+                android:text="Lembrar senha"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonCadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/shape_botao_entrar_login"
+            android:fontFamily="@font/maropelight"
+            android:onClick="cadastraUsuario"
+            android:text="Cadastrar"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="10dp"
+            android:stateListAnimator="@null"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
