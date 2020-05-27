@@ -9,7 +9,7 @@ import br.com.cadernorapido.model.DaoSession;
 
 public class App extends Application {
 
-    private DaoSession daoSession;
+    private static DaoSession daoSession;
 
     @Override
     public void onCreate() {
@@ -20,7 +20,7 @@ public class App extends Application {
         daoSession = new DaoMaster(db).newSession();
     }
 
-    public DaoSession getDaoSession() {
+    public static DaoSession getDaoSession() {
         return daoSession;
     }
 }

@@ -24,8 +24,12 @@ public class CadastroUsuariosActivity extends AppCompatActivity {
         binding.buttonCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Usuarios.daoSessionUsuarios(getApplication()).insert(
-                        Usuarios.getInstance(binding.editTextCadastroUsuario.getText().toString(), binding.editTextCadastroSenha.getText().toString()));
+//                Usuarios.daoSessionUsuarios(getApplication()).insert(
+//                        Usuarios.getInstance(binding.editTextCadastroUsuario.getText().toString(), binding.editTextCadastroSenha.getText().toString()));
+//
+                Usuarios.getInstance(binding.editTextCadastroUsuario.getText().toString(),binding.editTextCadastroSenha.getText().toString()).save();
+
+
                 Toast.makeText(CadastroUsuariosActivity.this, "Usuário cadastrado", Toast.LENGTH_SHORT).show();
             }
         });

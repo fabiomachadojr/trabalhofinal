@@ -10,7 +10,7 @@ import org.greenrobot.greendao.annotation.NotNull;
 import br.com.cadernorapido.application.App;
 
 @Entity
-public class Usuarios {
+public class Usuarios  extends BaseModel{
 
     @Id(autoincrement = true)
     private Long id;

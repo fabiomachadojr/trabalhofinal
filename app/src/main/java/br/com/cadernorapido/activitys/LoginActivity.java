@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 
+import java.util.List;
+
 import br.com.cadernorapido.R;
 import br.com.cadernorapido.databinding.ActivityLoginBinding;
 import br.com.cadernorapido.model.Usuarios;
@@ -19,7 +21,6 @@ import br.com.cadernorapido.model.UsuariosDao;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-    QueryBuilder<Usuarios> consulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         binding.buttonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                consulta = Usuarios.daoSessionUsuarios(getApplication()).queryBuilder().where
-                        (UsuariosDao.Properties.User.eq(binding.editTextUsuario.getText().toString()));
-                if(consulta.count() > 0){
+
+                List<Usuarios> consulta = Usuarios.daoSessionUsuarios(getApplication()).queryBuilder().where(UsuariosDao.Properties.User.eq(binding.editTextUsuario.getText().toString()),
+                        UsuariosDao.Properties.Senha.eq(binding.editTextSenha.getText().toString())).list();
+
+                if (consulta.size() > 0) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
