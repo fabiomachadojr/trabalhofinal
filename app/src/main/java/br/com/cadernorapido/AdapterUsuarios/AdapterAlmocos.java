@@ -1,25 +1,24 @@
 package br.com.cadernorapido.AdapterUsuarios;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.cadernorapido.R;
+import br.com.cadernorapido.model.Almoco;
 import br.com.cadernorapido.model.Usuarios;
 
-public class AdapterUsuarios extends BaseAdapter {
+public class AdapterAlmocos extends BaseAdapter {
 
-    List<Usuarios> listaUsuarios;
+    List<Almoco> almocoList;
     Activity activity;
 
-    public AdapterUsuarios(List<Usuarios> listaUsuarios, Activity activity) {
-        this.listaUsuarios = listaUsuarios;
+    public AdapterAlmocos(List<Almoco> almocoList, Activity activity) {
+        this.almocoList = almocoList;
         this.activity = activity;
     }
 
@@ -27,13 +26,13 @@ public class AdapterUsuarios extends BaseAdapter {
     @Override
     public int getCount() {
         // select count(1) from Pessoas;
-        return listaUsuarios.size();
+        return almocoList.size();
     }
 
     @Override
     public Object getItem(int i) {
         // select * from Pessoas where id_pessoa = 1;
-        return listaUsuarios.get(i);
+        return almocoList.get(i);
     }
 
     @Override
@@ -43,15 +42,20 @@ public class AdapterUsuarios extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Usuarios usuario = listaUsuarios.get(i);
+        Almoco almoco = almocoList.get(i);
         view = activity.getLayoutInflater().inflate(R.layout.item_usuario, viewGroup, false);
+        TextView nome = view.findViewById(R.id.tvNome);
+        TextView senha = view.findViewById(R.id.tvSenha);
+
+        nome.setText("Valor:");
+        senha.setText("Data:");
 
         TextView nomeUsuario = view.findViewById(R.id.tVnomeUsuario);
+
         TextView senhaUsuario = view.findViewById(R.id.tvSenhaUsuario);
 
-        senhaUsuario.setText(usuario.getSenha());
-        nomeUsuario.setText(usuario.getUser());
+        senhaUsuario.setText(almoco.getData().toString());
+        nomeUsuario.setText(String.valueOf(almoco.getValor()));
         return view;
     }
-
 }

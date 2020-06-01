@@ -26,15 +26,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        getSupportActionBar().hide();
+
+        if (Usuarios.verificaUsuarioLogado()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
 
         binding.buttonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                List<Usuarios> consulta = Usuarios.daoSessionUsuarios(getApplication()).queryBuilder().where(UsuariosDao.Properties.User.eq(binding.editTextUsuario.getText().toString()),
-                        UsuariosDao.Properties.Senha.eq(binding.editTextSenha.getText().toString())).list();
-
-                if (consulta.size() > 0) {
+                if (Usuarios.validUsuario(binding.editTextUsuario.getText().toString(), binding.editTextSenha.getText().toString())) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {

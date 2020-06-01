@@ -1,5 +1,7 @@
 package br.com.cadernorapido.model;
 
+import android.app.Application;
+
 import org.greenrobot.greendao.AbstractDao;
 
 import java.io.Serializable;
