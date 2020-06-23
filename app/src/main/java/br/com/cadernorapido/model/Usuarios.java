@@ -7,6 +7,8 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 
+import java.util.Date;
+
 import br.com.cadernorapido.application.App;
 
 @Entity
@@ -17,23 +19,26 @@ public class Usuarios extends BaseModel {
     @NotNull
     private String user;
     private String senha;
+    private Date dataLogin;
 
     private boolean ativo;
 
     private static Usuarios instance = new Usuarios();
 
-    public static Usuarios getInstance(String user, String senha, boolean ativo) {
+    public static Usuarios getInstance(String user, String senha, boolean ativo, Date dataLogin) {
         instance.setUser(user);
         instance.setSenha(senha);
         instance.setAtivo(ativo);
+        instance.setDataLogin(dataLogin);
         return instance;
     }
 
-    @Generated(hash = 1780136761)
-    public Usuarios(Long id, @NotNull String user, String senha, boolean ativo) {
+    @Generated(hash = 948825256)
+    public Usuarios(Long id, @NotNull String user, String senha, Date dataLogin, boolean ativo) {
         this.id = id;
         this.user = user;
         this.senha = senha;
+        this.dataLogin = dataLogin;
         this.ativo = ativo;
     }
 
@@ -84,6 +89,7 @@ public class Usuarios extends BaseModel {
 
         if (usuarios != null) {
             usuarios.setAtivo(true);
+            usuarios.setDataLogin(new Date());
             usuarios.save();
             return true;
         }
@@ -103,6 +109,12 @@ public class Usuarios extends BaseModel {
         return usuarios != null;
     }
 
+    public static Usuarios getUsuarioAtivo() {
+
+
+        return Usuarios.getDaoSession().queryBuilder().where(UsuariosDao.Properties.Ativo.eq(true)).unique();
+    }
+
     public boolean isAtivo() {
         return ativo;
     }
@@ -113,5 +125,13 @@ public class Usuarios extends BaseModel {
 
     public boolean getAtivo() {
         return this.ativo;
+    }
+
+    public Date getDataLogin() {
+        return dataLogin;
+    }
+
+    public void setDataLogin(Date dataLogin) {
+        this.dataLogin = dataLogin;
     }
 }

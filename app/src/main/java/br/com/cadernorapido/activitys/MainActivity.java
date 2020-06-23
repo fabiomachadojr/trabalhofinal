@@ -21,11 +21,13 @@ import br.com.cadernorapido.AdapterUsuarios.AdapterUsuarios;
 import br.com.cadernorapido.R;
 import br.com.cadernorapido.databinding.ActivityMainBinding;
 import br.com.cadernorapido.model.Usuarios;
+import br.com.cadernorapido.service.SynchronizationService;
 import br.com.cadernorapido.task.MyTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+    private Intent syncService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,28 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Lista Usuario");
 
         loadListView();
+        initSynchronization();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Usuarios.getUsuarioAtivo() == null) {
+            finish();
+        }
+        ;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    public void initSynchronization() {
+        syncService = new Intent(this, SynchronizationService.class);
+        startService(syncService);
     }
 
     @Override

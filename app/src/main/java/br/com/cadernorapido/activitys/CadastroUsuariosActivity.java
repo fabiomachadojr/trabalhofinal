@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import java.util.Date;
+
 import br.com.cadernorapido.R;
 import br.com.cadernorapido.databinding.ActivityCadastroUsuariosBinding;
 import br.com.cadernorapido.model.Usuarios;
@@ -33,7 +35,7 @@ public class CadastroUsuariosActivity extends AppCompatActivity {
                     return;
                 }
 
-                Usuarios.getInstance(binding.editTextCadastroUsuario.getText().toString(), binding.editTextCadastroSenha.getText().toString(),true).save();
+                Usuarios.getInstance(binding.editTextCadastroUsuario.getText().toString(), binding.editTextCadastroSenha.getText().toString(),true,new Date()).save();
                 Toast.makeText(CadastroUsuariosActivity.this, "Usuário cadastrado", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CadastroUsuariosActivity.this, MainActivity.class);
                 startActivity(intent);

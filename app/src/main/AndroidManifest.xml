@@ -13,6 +13,10 @@
         <activity android:name=".activitys.CadastroUsuariosActivity"/>
         <activity android:name=".activitys.MainActivity" />
         <activity android:name=".activitys.ListaAlmocosActivity" />
+        <service
+            android:name=".service.SynchronizationService"
+            android:enabled="true"
+            android:exported="true"/>
         <activity android:name=".activitys.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
