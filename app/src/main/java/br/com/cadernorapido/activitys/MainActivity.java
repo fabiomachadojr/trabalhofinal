@@ -21,6 +21,7 @@ import br.com.cadernorapido.AdapterUsuarios.AdapterUsuarios;
 import br.com.cadernorapido.R;
 import br.com.cadernorapido.databinding.ActivityMainBinding;
 import br.com.cadernorapido.model.Usuarios;
+import br.com.cadernorapido.task.MyTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
             Usuarios.deslogarUsuario();
             finish();
         }
+        if (item.getItemId() == R.id.action_sincronizar) {
+            new MyTask(new MyTask.OnFinishListener() {
+                @Override
+                public void onFinishListener() {
+                    Toast.makeText(MainActivity.this, "Dados sincronizados!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

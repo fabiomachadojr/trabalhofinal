@@ -4,9 +4,14 @@
     tools:context="br.com.cloudpar.veloce_app.MainActivity">
 
     <item
+        android:id="@+id/action_sincronizar"
+        android:icon="@drawable/ic_sync"
+        android:title="@string/sincronizar"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_sair"
         android:icon="@drawable/ic_exit_to_app"
         android:title="@string/sair"
         app:showAsAction="ifRoom" />
-
 </menu>
