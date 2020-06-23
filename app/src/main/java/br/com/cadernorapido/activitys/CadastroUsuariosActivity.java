@@ -39,6 +39,7 @@ public class CadastroUsuariosActivity extends AppCompatActivity {
                 Toast.makeText(CadastroUsuariosActivity.this, "Usuário cadastrado", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CadastroUsuariosActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
