@@ -28,23 +28,26 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         getSupportActionBar().hide();
 
+        //Clean Code - 1
         if (Usuarios.verificaUsuarioLogado()) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
-
+        //Clean Code - 6
         binding.buttonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Clean Code - 2            //Clean Code - 3                                //Clean Code - 4
                 if (Usuarios.validUsuario(binding.editTextUsuario.getText().toString(), binding.editTextSenha.getText().toString())) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Usuário não cadastrado!", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(LoginActivity.this, R.string.usuarionaocadastrado, Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+        //Clean Code - 5
         binding.buttonCadastrese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

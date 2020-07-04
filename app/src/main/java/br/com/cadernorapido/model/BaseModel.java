@@ -1,12 +1,12 @@
 package br.com.cadernorapido.model;
 
-import android.app.Application;
+        import android.app.Application;
 
-import org.greenrobot.greendao.AbstractDao;
+        import org.greenrobot.greendao.AbstractDao;
 
-import java.io.Serializable;
+        import java.io.Serializable;
 
-import br.com.cadernorapido.application.App;
+        import br.com.cadernorapido.application.App;
 
 
 public class BaseModel implements Serializable {
@@ -27,5 +27,11 @@ public class BaseModel implements Serializable {
 
     public void save(AbstractDao abstractDao) {
         abstractDao.save(this);
+    }
+
+    public void delete() {
+        DaoSession daoSession = App.getDaoSession();
+        AbstractDao abstractDao = daoSession.getDao(this.getClass());
+        abstractDao.delete(this);
     }
 }

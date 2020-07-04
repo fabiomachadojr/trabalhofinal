@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 import br.com.cadernorapido.model.Usuarios;
 
+//Thred background
+
 public class SynchronizationService extends Service {
     private Handler handler;
     private Runnable runnable;
@@ -44,6 +46,7 @@ public class SynchronizationService extends Service {
         ;
         handler.post(runnable);
     }
+
 
     private void verificarDataLoginUsuario() {
         Usuarios usuarios = Usuarios.getUsuarioAtivo();

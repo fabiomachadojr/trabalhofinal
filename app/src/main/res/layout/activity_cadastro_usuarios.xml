@@ -54,7 +54,7 @@
                 android:layout_gravity="left"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/maropelight"
-                android:text="Preencha seus dados:"
+                android:text="Preencha os dados:"
                 android:textColor="#000000"
                 android:textSize="15dp" />
 
@@ -99,19 +99,6 @@
                     android:textColor="#000000"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <CheckBox
-                android:id="@+id/checkBoxLembrar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#000000"
-                android:fontFamily="@font/maropelight"
-                android:onClick="lembraSenha"
-                android:text="Lembrar senha"
-                android:textColor="#000000"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         </LinearLayout>
 

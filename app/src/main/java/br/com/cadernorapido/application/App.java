@@ -1,9 +1,7 @@
 package br.com.cadernorapido.application;
 
 import android.app.Application;
-
 import org.greenrobot.greendao.database.Database;
-
 import br.com.cadernorapido.model.DaoMaster;
 import br.com.cadernorapido.model.DaoSession;
 

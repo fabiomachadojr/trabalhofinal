@@ -1,7 +1,7 @@
 package br.com.cadernorapido.task;
 
-import android.os.AsyncTask;
-import android.widget.Toast;
+        import android.os.AsyncTask;
+        import android.widget.Toast;
 
 
 public class MyTask extends AsyncTask<String, Void, String> {
