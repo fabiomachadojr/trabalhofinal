@@ -11,12 +11,9 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
 import java.util.List;
-
 import br.com.cadernorapido.AdapterUsuarios.AdapterUsuarios;
 import br.com.cadernorapido.CustomSnackBar;
 import br.com.cadernorapido.CustomToast;
@@ -49,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
     }
 
@@ -105,37 +104,52 @@ public class MainActivity extends AppCompatActivity {
         adapterUsuarios = new AdapterUsuarios(Usuarios.getDaoSession().loadAll(), this);
         binding.listView.setAdapter(adapterUsuarios);
         adapterUsuarios.notifyDataSetChanged();
-
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final Usuarios usuarios = Usuarios.getDaoSession().loadAll().get(i);
-                final android.app.AlertDialog alerta;
-                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Cancelamento");
-                builder.setMessage("Tem certeza que deseja cancelar?");
-                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        usuarios.delete();
-                        loadListView();
-                        FeedBackManager feedBackManager = new FeedBackManager(binding.getRoot());
-                        feedBackManager.showSpeclMessage(new CustomToast());
-                    }
-                });
-                builder.setNegativeButton("Negativo", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        FeedBackManager feedBackManager = new FeedBackManager(binding.getRoot());
-                        feedBackManager.showSpeclMessage(new CustomSnackBar());
-                    }
-                });
-                alerta = builder.create();
-                alerta.show();
+                mostrarDialogo(i);
 
             }
         });
+        binding.listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Usuarios usuarios = Usuarios.getDaoSession().loadAll().get(position);
+                Intent intent = new Intent(MainActivity.this, EditarUsuariosActivity.class);
+                Bundle bd = new Bundle();
+                bd.putLong("id",usuarios.getId());
+                intent.putExtras(bd);
+                startActivity(intent);
+                return false;
+            }
+        });
 
+    }
+
+    private void mostrarDialogo(int i) {
+        final Usuarios usuarios = Usuarios.getDaoSession().loadAll().get(i);
+        final AlertDialog alerta;
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Cancelamento");
+        builder.setMessage("Tem certeza que deseja cancelar?");
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                usuarios.delete();
+                loadListView();
+                FeedBackManager feedBackManager = new FeedBackManager(binding.getRoot());
+                feedBackManager.showSpeclMessage(new CustomToast());
+            }
+        });
+        builder.setNegativeButton("Negativo", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                FeedBackManager feedBackManager = new FeedBackManager(binding.getRoot());
+                feedBackManager.showSpeclMessage(new CustomSnackBar());
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
     }
 
 }

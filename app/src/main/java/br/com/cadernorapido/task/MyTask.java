@@ -6,7 +6,7 @@ package br.com.cadernorapido.task;
 
 public class MyTask extends AsyncTask<String, Void, String> {
 
-    public interface OnFinishListener {
+       public interface OnFinishListener {
         void onFinishListener();
     }
 

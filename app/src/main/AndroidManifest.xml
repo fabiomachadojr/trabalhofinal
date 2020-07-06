@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity android:name=".activitys.CadastroUsuariosActivity"/>
+        <activity android:name=".activitys.EditarUsuariosActivity"/>
         <activity android:name=".activitys.MainActivity" />
-
         <service
             android:name=".service.SynchronizationService"
             android:enabled="true"

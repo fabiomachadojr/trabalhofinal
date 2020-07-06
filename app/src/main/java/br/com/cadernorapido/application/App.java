@@ -4,6 +4,7 @@ import android.app.Application;
 import org.greenrobot.greendao.database.Database;
 import br.com.cadernorapido.model.DaoMaster;
 import br.com.cadernorapido.model.DaoSession;
+import br.com.cadernorapido.model.Usuarios;
 
 public class App extends Application {
 
@@ -21,4 +22,6 @@ public class App extends Application {
     public static DaoSession getDaoSession() {
         return daoSession;
     }
+
+
 }

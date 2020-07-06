@@ -7,6 +7,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import java.util.Date;
+import java.util.UUID;
 
 import br.com.cadernorapido.application.App;
 
@@ -19,6 +20,7 @@ public class Usuarios extends BaseModel {
     private String user;
     private String senha;
     private Date dataLogin;
+    private String guideUnique;
 
     private boolean ativo;
 
@@ -29,15 +31,17 @@ public class Usuarios extends BaseModel {
         instance.setSenha(senha);
         instance.setAtivo(ativo);
         instance.setDataLogin(dataLogin);
+        instance.setGuideUnique(UUID.randomUUID().toString());
         return instance;
     }
 
-    @Generated(hash = 948825256)
-    public Usuarios(Long id, @NotNull String user, String senha, Date dataLogin, boolean ativo) {
+    @Generated(hash = 433145558)
+    public Usuarios(Long id, @NotNull String user, String senha, Date dataLogin, String guideUnique, boolean ativo) {
         this.id = id;
         this.user = user;
         this.senha = senha;
         this.dataLogin = dataLogin;
+        this.guideUnique = guideUnique;
         this.ativo = ativo;
     }
 
@@ -74,6 +78,14 @@ public class Usuarios extends BaseModel {
         this.senha = senha;
     }
 
+    public String getGuideUnique() {
+        return guideUnique;
+    }
+
+    public void setGuideUnique(String guideUnique) {
+        this.guideUnique = guideUnique;
+    }
+
     public static UsuariosDao getDaoSession() {
         DaoSession daoSession = App.getDaoSession();
         return daoSession.getUsuariosDao();
@@ -81,6 +93,10 @@ public class Usuarios extends BaseModel {
 
     public static boolean verificarPossueCadastro(String nome) {
         return Usuarios.getDaoSession().queryBuilder().where(UsuariosDao.Properties.User.eq(nome)).list().size() > 0;
+    }
+
+    public static Usuarios buscarUsuario(Long id) {
+        return Usuarios.getDaoSession().queryBuilder().where(UsuariosDao.Properties.Id.eq(id)).unique();
     }
 
     public static boolean validUsuario(String nome, String senha) {
@@ -132,5 +148,14 @@ public class Usuarios extends BaseModel {
 
     public void setDataLogin(Date dataLogin) {
         this.dataLogin = dataLogin;
+    }
+
+    @Override
+    public void save() {
+        super.save();
+        UsuarioTextCare usuarioTextCare = new UsuarioTextCare();
+        usuarioTextCare.setNomeDoUsuario(getUser());
+        usuarioTextCare.setGuideUnique(getGuideUnique());
+        usuarioTextCare.save();
     }
 }
