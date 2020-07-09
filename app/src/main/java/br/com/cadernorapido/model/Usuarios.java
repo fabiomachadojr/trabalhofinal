@@ -25,6 +25,7 @@ public class Usuarios extends BaseModel {
     private static Usuarios instance = new Usuarios();
 
     public static Usuarios getInstance(String user, String senha, boolean ativo, Date dataLogin) {
+        instance = new Usuarios();
         instance.setUser(user);
         instance.setSenha(senha);
         instance.setAtivo(ativo);
