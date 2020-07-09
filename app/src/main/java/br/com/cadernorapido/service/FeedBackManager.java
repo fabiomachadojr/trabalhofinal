@@ -2,6 +2,8 @@ package br.com.cadernorapido.service;
 
 import android.view.View;
 
+import br.com.cadernorapido.interfaces.Message;
+
 public class FeedBackManager {
 
     View view;

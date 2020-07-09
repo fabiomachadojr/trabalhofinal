@@ -3,7 +3,9 @@ package br.com.cadernorapido.service;
 import android.view.View;
 import android.widget.Toast;
 
-public class CustomToast implements Message{
+import br.com.cadernorapido.interfaces.Message;
+
+public class CustomToast implements Message {
 
     @Override
     public void showMessage(View view) {

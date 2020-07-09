@@ -11,6 +11,7 @@ import br.com.cadernorapido.model.Usuarios;
 public class App extends Application {
 
     private static DaoSession daoSession;
+    private static Database db;
 
     @Override
     public void onCreate() {
@@ -22,6 +23,11 @@ public class App extends Application {
     }
 
     public static DaoSession getDaoSession() {
+
+        if (daoSession == null) {
+            daoSession = new DaoMaster(db).newSession();
+        }
+
         return daoSession;
     }
 
