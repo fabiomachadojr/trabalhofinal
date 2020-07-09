@@ -11,28 +11,18 @@
         android:theme="@style/AppTheme2">
 
 
-        <ImageView
-            android:id="@+id/imageViewLogo"
-            android:layout_width="115dp"
-            android:layout_height="104dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_copybook" />
-
         <TextView
             android:id="@+id/textViewLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
             android:fontFamily="@font/maropelight"
-            android:text="CadernoRápido"
+            android:text="Cadastro de usuários"
+            android:textColor="#000000"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
-            android:textColor="#000000"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout4"
@@ -54,7 +44,7 @@
                 android:layout_gravity="left"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/maropelight"
-                android:text="Preencha os dados:"
+                android:text="Preencha os dados do usuário:"
                 android:textColor="#000000"
                 android:textSize="15dp" />
 

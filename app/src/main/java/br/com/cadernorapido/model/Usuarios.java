@@ -1,7 +1,5 @@
 package br.com.cadernorapido.model;
 
-import android.app.Application;
-
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
@@ -125,7 +123,6 @@ public class Usuarios extends BaseModel {
     }
 
     public static Usuarios getUsuarioAtivo() {
-
 
         return Usuarios.getDaoSession().queryBuilder().where(UsuariosDao.Properties.Ativo.eq(true)).unique();
     }

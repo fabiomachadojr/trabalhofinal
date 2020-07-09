@@ -25,13 +25,11 @@ public class AdapterAlmocos extends BaseAdapter {
 
     @Override
     public int getCount() {
-        // select count(1) from Pessoas;
         return almocoList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        // select * from Pessoas where id_pessoa = 1;
         return almocoList.get(i);
     }
 
