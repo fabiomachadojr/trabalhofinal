@@ -1,4 +1,4 @@
-package br.com.cadernorapido;
+package br.com.cadernorapido.service;
 
 public interface SimDialogo {
 

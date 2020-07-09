@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import br.com.cadernorapido.SimDialogo;
+import br.com.cadernorapido.service.SimDialogo;
 
 
 public class BaseAlertDialogo implements SimDialogo {

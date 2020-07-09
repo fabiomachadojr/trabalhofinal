@@ -6,6 +6,8 @@ import br.com.cadernorapido.model.DaoMaster;
 import br.com.cadernorapido.model.DaoSession;
 import br.com.cadernorapido.model.Usuarios;
 
+
+//Singleton
 public class App extends Application {
 
     private static DaoSession daoSession;

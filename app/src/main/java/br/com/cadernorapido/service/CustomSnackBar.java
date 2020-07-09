@@ -1,13 +1,12 @@
-package br.com.cadernorapido;
+package br.com.cadernorapido.service;
 
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
 public class CustomSnackBar implements Message{
     @Override
     public void showMessage(View view) {
-        Snackbar.make(view, "sdfds", 1000).show();
+        Snackbar.make(view, "snack...", 1000).show();
     }
 }
